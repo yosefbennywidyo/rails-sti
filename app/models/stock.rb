@@ -1,0 +1,3 @@
+class Stock < Client
+  
+end
