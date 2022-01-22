@@ -16,9 +16,9 @@ class ClientsTest < ApplicationSystemTestCase
 
     fill_in "Email", with: @client.email
     fill_in "Name", with: @client.name
-    click_on "Create Client"
+    click_on "Create #{@client.type}"
 
-    assert_text "Client was successfully created"
+    assert_text "#{@client.type} was successfully created"
     click_on "Back"
   end
 
@@ -30,14 +30,14 @@ class ClientsTest < ApplicationSystemTestCase
     fill_in "Name", with: @client.name
     click_on "Update Client"
 
-    assert_text "Client was successfully updated"
+    assert_text "#{@client.type} was successfully updated"
     click_on "Back"
   end
 
   test "should destroy Client" do
     visit client_url(@client)
-    click_on "Destroy this client", match: :first
+    click_on "Destroy this #{@client.type}", match: :first
 
-    assert_text "Client was successfully destroyed"
+    assert_text "#{@client.type} was successfully destroyed"
   end
 end
