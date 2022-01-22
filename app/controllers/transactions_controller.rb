@@ -114,9 +114,9 @@ class TransactionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client_transaction
       @client = Client.find_by_id(params[:client_id])
-      @client_balance = @client.transactions.balance(@client.wallet)
-      @client_debit   = @client.transactions.debit(@client.wallet)
-      @client_credit  = @client.transactions.credit(@client.wallet)
+      @client_balance = Transaction.balance(@client.wallet)
+      @client_debit   = Transaction.debit(@client.wallet)
+      @client_credit  = Transaction.credit(@client.wallet)
     end
 
     # Only allow a list of trusted parameters through.
