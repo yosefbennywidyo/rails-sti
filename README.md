@@ -1,24 +1,31 @@
 # README
+This project using [Single Table Inheritance](https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Clients
+There are 3 clients type:
 
-Things you may want to cover:
+- User
+- Team
+- Stock
 
-* Ruby version
+Client can do debit (withdraw or transfer to other client) and credit (deposit or get transfer from other client).
 
-* System dependencies
+## Debit or Credit
+From the root path:
+- select one client type
+- check transaction
+- select Credit or Debit
 
-* Configuration
+## Test
 
-* Database creation
+```ruby
+rails test
+```
 
-* Database initialization
+## Requirements:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby version: 3.1.0
+- Rails version: 7.0.1
+- Node version: 16.4.0
+- NPM version: 7.18.1
+- Yarn version: 1.22.17
