@@ -8,6 +8,10 @@ class ClientsController < ApplicationController
 
   # GET /clients/1 or /clients/1.json
   def show
+    @client = Client.find_by_id(params[:id])
+    @user = Client.find_by_id(params[:id])
+    @team = Client.find_by_id(params[:id])
+    @stock = Client.find_by_id(params[:id])
   end
 
   # GET /clients/new
@@ -17,6 +21,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
+    
   end
 
   # POST /clients or /clients.json
@@ -25,7 +30,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
+        format.html { redirect_to client_url(@client), notice: "#{@client.type} was successfully created." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +43,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to client_url(@client), notice: "Client was successfully updated." }
+        format.html { redirect_to client_url(@client), notice: "#{@client.type} was successfully updated." }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +57,7 @@ class ClientsController < ApplicationController
     @client.destroy
 
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: "Client was successfully destroyed." }
+      format.html { redirect_to clients_url, notice: "#{@client.type} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,11 +65,15 @@ class ClientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      @client = Client.find_by_id(params[:id])
+      @show_client_text = "Show this #{@client.type}"
+      @edit_client_text = "Edit this #{@client.type}"
     end
 
     # Only allow a list of trusted parameters through.
+
     def client_params
       params.require(:client).permit(:name, :email)
     end
+
 end
