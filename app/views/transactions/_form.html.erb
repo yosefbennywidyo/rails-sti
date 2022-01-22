@@ -1,0 +1,27 @@
+<%= form_with(@transaction) do |form| %>
+  <% if client.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% @transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form>
+  <form>
+    <div class="col  mb-2">
+      <div class="card" style="width: 36rem;">
+        <div class="card-body">
+            <%= form.label 'amount' %>
+            <%= form.number_field :amount %>
+            <%= form.label 'to' %>
+            <%= select("clients", "id", Client.all.exclude(@client.id).collect {|p| [ p.name, p.email ] }, { include_blank: false }) %>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Send</button>
+      </div>
+    </div>
+  </form>
+<% end %>

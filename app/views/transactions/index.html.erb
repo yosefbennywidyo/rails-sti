@@ -1,0 +1,60 @@
+<p style="color: green"><%= notice %></p>
+<div class="col">
+  <h1><%= @client.name%> Transactions</h1>
+  <div class="col">
+    <h1>Balance</h1>
+
+    <div id="users">
+      <p><%= @client_balance %></p>
+    </div>
+  </div>
+  <div class="col">
+    <h1>Credit</h1>
+
+    <div id="teams">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @client_credit.each do |credit| %>
+            <%= render credit %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col">
+    <h1>Debit</h1>
+
+    <div id="teams">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @client_debit.each do |debit| %>
+            <%= render debit %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col">
+    <%= link_to "Credit with #{@client.name}", credit_transaction_path %> |
+    <%= link_to "Debit with #{@client.name}", debit_transaction_path %> |
+    <%= link_to "Back to clients", clients_path %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<div class="col">
+  <h1><%= @client.name %> Balance</h1>
+  <form>
+    <div class="col  mb-2">
+      <div class="card" style="width: 36rem;">
+        <div class="card-body">
+            <%= @client_balance %>
+        </div>
+      </div>
+    </div>
+  </form>
+  <%= form_with scope: :credit, url: create_credit_transaction_path do |form| %>
+    <div class="col  mb-2">
+      <div class="card" style="width: 36rem;">
+        <div class="card-body">
+          <%= form.label 'amount' %>
+          <%= form.number_field :amount %>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Send</button>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "Back to transactions", client_transactions_path %>
+</div>
