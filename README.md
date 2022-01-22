@@ -1,7 +1,9 @@
 # README
+
 This project using [Single Table Inheritance](https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
 
 ## Clients
+
 There are 3 clients type:
 
 - User
@@ -11,6 +13,7 @@ There are 3 clients type:
 Client can do debit (withdraw or transfer to other client) and credit (deposit or get transfer from other client).
 
 ## Debit or Credit
+
 From the root path:
 - select one client type
 - check transaction
