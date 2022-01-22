@@ -1,3 +1,4 @@
+<div class="col">
 <h1>Editing client</h1>
 
 <%= render "form", client: @client %>
@@ -5,6 +6,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this client", @client %> |
+  <%= link_to @show_client_text, [@client.becomes(User)] %> |
   <%= link_to "Back to clients", clients_path %>
+</div>
 </div>

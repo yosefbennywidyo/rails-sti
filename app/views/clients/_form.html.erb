@@ -10,18 +10,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <form>
+  <form>
+    <div class="col  mb-2">
+      <div class="card" style="width: 36rem;">
+        <div class="card-body">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+            <%= form.label :email %>
+            <%= form.text_field :email %>
+          <button type="submit" class="btn btn-primary mb-2">Update <%= client.type %></button>
+        </div>
+      </div>
+    </div>
+  </form>
 <% end %>
