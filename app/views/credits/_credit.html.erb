@@ -1,0 +1,7 @@
+<tr>
+  <th scope="row"><%= credit.created_at.to_formatted_s(:long_ordinal) %></th>
+  <td><%= credit.amount %></td>
+  <td><%= credit.type %></td>
+  <td><%= credit.sender_wallet_id.present? ? Wallet.find_by_id(credit.sender_wallet_id).client.email : "Topup" %></td>
+  <td><%= credit.receiver_wallet_id.present? ? Wallet.find_by_id(credit.receiver_wallet_id).client.email : "Withdraw" %></td>
+</tr>

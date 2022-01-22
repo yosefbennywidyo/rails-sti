@@ -1,0 +1,7 @@
+<tr>
+  <th scope="row"><%= debit.created_at.to_formatted_s(:long_ordinal) %></th>
+  <td><%= debit.amount.abs %></td>
+  <td><%= debit.type %></td>
+  <td><%= debit.sender_wallet_id.present? ? Wallet.find_by_id(debit.sender_wallet_id).client.email : "Topup" %></td>
+  <td><%= debit.receiver_wallet_id.present? ? Wallet.find_by_id(debit.receiver_wallet_id).client.email : "Withdraw" %></td>
+</tr>
